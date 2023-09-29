@@ -3,10 +3,15 @@ days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satur
 
 
 def day_of_week():
-    # Let's start simple, and build up from there.
-    # 1.1 TODO: Write a for loop that prints out each day in the `days` variable above.
-
-    # 1.2 TODO: Write another for loop that does the same thing, but this time use the range function
+#     # Let's start simple, and build up from there.
+#     # 1.1 TODO: Write a for loop that prints out each day in the `days` variable above.
+    for day in days:
+        print(day)
+# day_of_week()
+#     # 1.2 TODO: Write another for loop that does the same thing, but this time use the range function
+    for day in range(len(days)):
+        print(days[day])
+# day_of_week()
 
 
 def favorite_activities():
@@ -14,11 +19,26 @@ def favorite_activities():
     # let's ask the user what their favorite thing to do is on that day of the week.
     # NOTE: Make sure to use an f-string so that the user knows which day they're being asked about.
 
-    # We should keep track of the user's favorite things to do so that we can print them out all together.
-    # 2.2 TODO: ABOVE your for loop, create a new empty list to hold the user's favorite activities.
 
-    # 2.3 TODO: Now, back in your for loop, append each of the user's answers into your new list.
-    # AFTER your loop, print out the list to check if it got populated correctly.
+    user_favorites = []
+
+    for day in days:
+        user_favorite = input(f'What is your favorite thing to do on {day}? ')
+        user_favorites.append(user_favorite)
+    print(user_favorites)
+
+
+    # # We should keep track of the user's favorite things to do so that we can print them out all together.
+    # # 2.2 TODO: ABOVE your for loop, create a new empty list to hold the user's favorite activities.
+
+    # # 2.3 TODO: Now, back in your for loop, append each of the user's answers into your new list.
+    # # AFTER your loop, print out the list to check if it got populated correctly.
+    # for day in user_favorites:
+
+    for day in range(len(days)) and range(len(user_favorites)):
+        
+        print(f'On {days[day]}s, your favorite activity is to {user_favorites[day]}.')
+
 
     # 2.4: After the code you've written so far, let's create a new for loop.
     # As an example, let's say the user's favorite thing to do on Mondays is plan their week.
@@ -30,21 +50,24 @@ def favorite_activities():
     # you need to print out.
 
 
-'''
-    Take a look back at the code you just wrote. Look at how much it does!
 
-    Often, programmers will be given large tasks, and it's our responsibility to be able to break it down into
-    smaller pieces. We did the above piece by piece.  Now think about what the prompt might have been
-    to get us there.
+# favorite_activities()
 
-    Maybe: Write a program that asks the user about their favorite thing to do each day of the week.
-    Afterward, print out for the user each of their favorite daily activities.
+# '''
+#     Take a look back at the code you just wrote. Look at how much it does!
 
-    Would this larger task have felt doable without breaking it down into steps?
-    Is it clear what needs to be done?
+#     Often, programmers will be given large tasks, and it's our responsibility to be able to break it down into
+#     smaller pieces. We did the above piece by piece.  Now think about what the prompt might have been
+#     to get us there.
 
-    Try to break down the steps required for this second loop challenge.
-'''
+#     Maybe: Write a program that asks the user about their favorite thing to do each day of the week.
+#     Afterward, print out for the user each of their favorite daily activities.
+
+#     Would this larger task have felt doable without breaking it down into steps?
+#     Is it clear what needs to be done?
+
+#     Try to break down the steps required for this second loop challenge.
+# '''
 
 
 def temp_by_day():
@@ -53,11 +76,31 @@ def temp_by_day():
     # between 50 and 65, tell the user to 'Cozy, grab a sweater'. Finally, if the temperature is above 65,
     # tell the user to 'Put on some sunscreen!'.
 
+    for day in days:
+        temp = int(input('What is the temperature? '))
+        if temp < 50:
+            print('Brr, put on a jacket!')
+        elif temp >= 50 and temp <= 65:
+            print('Cozy, grab a sweater')
+        else:
+            print('Put on some sunscreen!')
+
+
+# temp_by_day()
 
 def temp_by_day_continuous():
     # 4 TODO: Write a program that asks the user what temperature it is outside. While the temperature is below 65,
     # tell the user to wear a sweater. Once the temperature is over 65, stop looping, and tell the user that
     # Spring has sprung!
+    
+        day_temp = int(input('What is the temperature outside? '))
+        while day_temp < 65:
+            print('Wear a sweater')
+            day_temp = int(input('What is the temperature outside? '))
 
+        else:
+            print('Spring has sprung!')
+        
     # NOTE: If you accidentally create an infinite while loop, it's ok! Go into the command line and
     # hit control + C to stop the program. No harm has been done to your computer.
+# temp_by_day_continuous()
